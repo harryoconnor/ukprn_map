@@ -1,0 +1,377 @@
+{
+    "ukprn": "10007157",
+    "name": "The University of Sheffield",
+    "years": [
+        {
+            "year": "2019/20",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 590
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 2585
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 5145
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 2685
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1430
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1720
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1470
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 1880
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 885
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 65
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 90
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 350
+                }
+            ]
+        },
+        {
+            "year": "2016/17",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 655
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 3025
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 4995
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 2885
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1680
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1865
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1625
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 2095
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 980
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 115
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 115
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 350
+                }
+            ]
+        },
+        {
+            "year": "2014/15",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 620
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 2830
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 4580
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 2550
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1605
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1775
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1425
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 1835
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 870
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 115
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 100
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 335
+                }
+            ]
+        },
+        {
+            "year": "2020/21",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 635
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 2600
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 5430
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 2675
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1455
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1730
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1500
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 1875
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 910
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 60
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 85
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 335
+                }
+            ]
+        },
+        {
+            "year": "2015/16",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 630
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 2870
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 4700
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 2620
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1620
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1825
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1505
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 1980
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 955
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 115
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 100
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 370
+                }
+            ]
+        },
+        {
+            "year": "2017/18",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 640
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 2955
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 5325
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 3005
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1650
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1900
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1645
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 2070
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 925
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 85
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 90
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 325
+                }
+            ]
+        },
+        {
+            "year": "2018/19",
+            "regions": [
+                {
+                    "domicile_region": "North East",
+                    "total_count": 640
+                },
+                {
+                    "domicile_region": "North West",
+                    "total_count": 2855
+                },
+                {
+                    "domicile_region": "Yorkshire and The Humber",
+                    "total_count": 5270
+                },
+                {
+                    "domicile_region": "East Midlands",
+                    "total_count": 2870
+                },
+                {
+                    "domicile_region": "West Midlands",
+                    "total_count": 1580
+                },
+                {
+                    "domicile_region": "Eastern",
+                    "total_count": 1845
+                },
+                {
+                    "domicile_region": "London",
+                    "total_count": 1575
+                },
+                {
+                    "domicile_region": "South East",
+                    "total_count": 1990
+                },
+                {
+                    "domicile_region": "South West",
+                    "total_count": 920
+                },
+                {
+                    "domicile_region": "Northern Ireland",
+                    "total_count": 80
+                },
+                {
+                    "domicile_region": "Scotland",
+                    "total_count": 95
+                },
+                {
+                    "domicile_region": "Wales",
+                    "total_count": 330
+                }
+            ]
+        }
+    ]
+}

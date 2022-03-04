@@ -4,6 +4,8 @@ class ProviderMap {
   constructor(root_node, regions_geojson, active_provider) {
     this.regions_geojson = regions_geojson
 
+    let active_year = 2019
+
     //setting up svg
 
     this.margin = {top: 10, right: 10, bottom: 10, left: 10}
@@ -24,9 +26,7 @@ class ProviderMap {
     
 
     let zoomed = ({transform}) =>{
-      console.log("transform", transform)
       this.main_group.attr("transform", transform);
-      console.log("still alive?")
     }
 
     this.svg.call(d3.zoom().on('zoom', zoomed));
@@ -51,23 +51,27 @@ class ProviderMap {
 
   }
   render() {
-    
+    //render provider point circle
     this.active_provider.coords = [this.active_provider.longitude,this.active_provider.latitude]
-    this.main_group.selectAll("circle")
-		  .data([this.active_provider], d=>d.ukprn).enter()
+
+    let circle_selection = this.main_group.selectAll("circle")
+      .data([this.active_provider], d=>d.ukprn)
+      
+    circle_selection.enter()
 		  .append("circle")
-		  .attr("cx", d => {return this.projection(d.coords)[0]; })
-		  .attr("cy", d => { return this.projection(d.coords)[1]; })
-		  .attr("r", "4px")
-		  .attr("fill", "black")
+		    .attr("cx", d => {return this.projection(d.coords)[0]; })
+		    .attr("cy", d => { return this.projection(d.coords)[1]; })
+		    .attr("r", "1")
+		    .attr("fill", "black")
+
+    circle_selection.exit().remove()
     
-    console.log("rendering")
+    //render provider point circle
   }
 
 
   set_active_provider(provider){
     this.active_provider = provider
-    console.log("test", provider)
     this.render()
   }
 };

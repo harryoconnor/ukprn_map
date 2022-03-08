@@ -1,9 +1,18 @@
 
 
-.svg-content-responsive {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 0;
-  }
+ul {
+    list-style-type: none;
+   }
 
+
+.tooltip-donut {
+    position: absolute;
+    text-align: center;
+    padding: .1rem;
+    background: #FFFFFF;
+    color: rgb(32, 29, 29);
+    border: 1px solid #313639;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 1rem;
+}

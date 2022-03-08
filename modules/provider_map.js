@@ -1,29 +1,59 @@
 
 
 class ProviderMap {
-  constructor(root_node, regions_geojson, active_provider) {
-    this.regions_geojson = regions_geojson
 
-    let active_year = 2019
+  constructor(root_node, regions_geojson) {
 
-    //setting up svg
+    this.test_data = regions_geojson
+    this.root_node = root_node
+    this.active_year = "2018/19"
 
-    this.margin = {top: 10, right: 10, bottom: 10, left: 10}
+    this.width = 750 
+    this.height = 400 
+    this.active_provider = null
+    this.active_provider_data = null
 
-    this.width = 750 - this.margin.left - this.margin.right;
-    this.height = 400 - this.margin.top - this.margin.bottom;
+    this.svg = null
+    this.setup_svg()
 
-    this.active_provider = active_provider
+    this.projection = d3.geoMercator().scale(1000).center([2.4,54]).translate([this.width / 2, this.height / 2]);
+    this.pathGenerator = d3.geoPath().projection(this.projection)
 
-    this.svg = root_node.append('svg')
-      .attr("viewBox", `0 0 ${this.width + this.margin.left + this.margin.right} ${this.height + this.margin.top + this.margin.bottom}`)
+    this.colorScale = d3.scaleLinear().domain([0, 100]).range(["#F7FBFF", "#08306B"]);
+
+    this.regions=null
+    this.setup_regions(regions_geojson)
+
+
+    this.tool_tip = d3.select("body").append("div")
+    .attr("class", "tooltip-donut")
+    .style("opacity", 0);
+
+
+
+  }
+
+  setup_regions(regions_geojson){
+    this.regions = []
+    for (let feature of regions_geojson.features){
+      let region = 
+      {
+        geojson_feature:feature, 
+        active_data: {count_percentage:50},
+        name : feature.properties.eer18nm
+      }
+      this.regions.push(region)
+    }
+  }
+
+  setup_svg(){
+    this.svg = this.root_node.append('svg')
+      .attr("viewBox", `0 0 ${this.width} ${this.height}`)
       .classed("svg-content-responsive", true)
 
     this.svg.style("background", "rgb(238, 224, 224)");
 
-    this.main_group = this.svg.append("g")
-    this.main_group.attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-    
+    this.main_group = this.svg.append("g");
 
     let zoomed = ({transform}) =>{
       this.main_group.attr("transform", transform);
@@ -31,27 +61,72 @@ class ProviderMap {
 
     this.svg.call(d3.zoom().on('zoom', zoomed));
 
+  }
 
-    //setting up  map
 
-    this.projection = d3.geoMercator().scale(1000).center([2.4,54]).translate([this.width / 2, this.height / 2]);
-    this.pathGenerator = d3.geoPath().projection(this.projection)
 
-    const features = this.regions_geojson.features
-    this.main_group.selectAll('path').data(features)
+  render() {
+  
+    this.render_map()
+    if (this.active_provider != null){
+      this.render_provider_circle()
+    }
+  }
+
+  render_map(){
+    let _this=this
+
+    var tooltip = d3.select('body').append('div')
+      .attr('class', 'hidden tooltip');
+
+    let path_selection = this.main_group.selectAll('path').data(this.regions)
+
+    path_selection
       .enter().append('path')
-        .attr("fill", "#69b3a2")
-        .attr("d", d3.geoPath()
-        .projection(this.projection))
-        //.style("stroke", "#fff")
+    .attr("stroke-width","0.05")
+    .attr("stroke","black")
+    .attr("fill", region=>{
+      return this.colorScale(region.active_data.count_percentage)
+    })
+    .attr("d", d=>this.pathGenerator(d["geojson_feature"]))
+    .on('mouseover', function (mouse_event,event_region){
+      d3.select(this).transition()
+      .duration('50')
+      .attr('opacity', '.85');
+      if (_this.active_provider != null){
+        _this.tool_tip.transition()
+        .duration(50)
+        .style("opacity", 1);
+          
+        console.log(event_region)
+        let name = "<li>" + event_region.name + "</li>"
+        let count_percentage = "<li> Percentage:" + event_region.active_data.count_percentage.toFixed(1) + "</li>"
+        let student_count = "<li> Student count:" +String(event_region.active_data.total_count) + "</li>"
+        let tool_tip_list = "<ul>" + name + count_percentage+student_count+"</ul>"
+        _this.tool_tip.html(tool_tip_list)
+        .style("left", (mouse_event.clientX+ 10) + "px")
+        .style("top", (mouse_event.clientY - 15) + "px");
+      }
+    })
+          
+    .on('mouseout', function (event,event_region) {
+      d3.select(this).transition()
+        .duration('50')
+        .attr('opacity', '1');
+      _this.tool_tip.transition()
+        .duration(50)
+        .style("opacity", 0);
+      })
 
 
-    //drawing circle
-
+    //updates data
+    path_selection
+      .attr("fill", region=>{
+        return this.colorScale(region.active_data.count_percentage)})
 
   }
-  render() {
-    //render provider point circle
+
+  render_provider_circle(){
     this.active_provider.coords = [this.active_provider.longitude,this.active_provider.latitude]
 
     let circle_selection = this.main_group.selectAll("circle")
@@ -61,19 +136,39 @@ class ProviderMap {
 		  .append("circle")
 		    .attr("cx", d => {return this.projection(d.coords)[0]; })
 		    .attr("cy", d => { return this.projection(d.coords)[1]; })
-		    .attr("r", "1")
-		    .attr("fill", "black")
+		    .attr("r", "2")
+		    .attr("fill", "yellow")
+
 
     circle_selection.exit().remove()
-    
-    //render provider point circle
   }
 
 
   set_active_provider(provider){
     this.active_provider = provider
-    this.render()
+
+    const data_file = "arrow_map_data/data"+provider.ukprn+".json"
+    d3.json(data_file).then( data=>{
+      this.active_provider_data=data;
+      this.set_region_data()
+      this.render();
+    })
   }
+
+  set_region_data(){
+
+    let years = this.active_provider_data.years
+
+    let regions_data = years.filter(d=>d.year==this.active_year)[0].regions
+ 
+    for (let region of this.regions){
+
+      let region_data = regions_data.filter(d=>d.domicile_region==region.name)[0]
+      console.log(region_data)
+      region.active_data=region_data
+    }
+  }
+
 };
 
 

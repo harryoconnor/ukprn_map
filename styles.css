@@ -8,6 +8,22 @@ ul {
     display: inline;
    }
 
+#ui_wrapper {
+    display: flex;
+}
+
+#slide_container {
+    display: flex;
+}
+#provider_picker {
+    display: flex;
+}
+#provider_choice {
+    margin: 1em;
+}
+
+
+
 
 .tooltip-donut {
     position: absolute;

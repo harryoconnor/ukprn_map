@@ -6,7 +6,8 @@ class ProviderMap {
 
     this.test_data = regions_geojson
     this.root_node = root_node
-    this.active_year = "2018/19"
+    this.active_starting_year = 2014
+    this.active_year = "2014/15"
 
     this.width = 750 
     this.height = 400 
@@ -98,7 +99,7 @@ class ProviderMap {
         .duration(50)
         .style("opacity", 1);
           
-        console.log(event_region)
+        //console.log(event_region)
         let name = "<li>" + event_region.name + "</li>"
         let count_percentage = "<li> Percentage:" + event_region.active_data.count_percentage.toFixed(1) + "%</li>"
         let student_count = "<li> Student count:" +String(event_region.active_data.total_count) + "</li>"
@@ -169,8 +170,17 @@ class ProviderMap {
     for (let region of this.regions){
 
       let region_data = regions_data.filter(d=>d.domicile_region==region.name)[0]
-      console.log(region_data)
+      //console.log(region_data)
       region.active_data=region_data
+    }
+  }
+
+  set_active_year(starting_year){
+    let ending_year = starting_year - 2000 + 1
+    this.active_year = String(starting_year) + "/" +  String(ending_year)
+    if (this.active_provider != null){
+      this.set_region_data()
+      this.render()
     }
   }
 

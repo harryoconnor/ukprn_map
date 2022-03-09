@@ -7,11 +7,20 @@
     <title>Provider Map</title>
 </head>
 <body>
-    <label for="ice-cream-choice">Choose a university:</label>
-    <input list="provider_datalist" id="provider_choice"provider_datalist/>
+    <div id="ui_wrapper">
+        <div id="provider_picker">
+            <p> Choose a university: </p>
+            <input list="provider_datalist" id="provider_choice"provider_datalist/>
 
-    <datalist id="provider_datalist">
-    </datalist>
+            <datalist id="provider_datalist">
+            </datalist>
+        </div>
+
+        <div id="slide_container">
+            <input type="range" min="2014" max="2020" value="2014" class="slider" id="myRange">
+            <div id="year_display"> <p id = active_year> 2014/15</p></div>
+        </div>
+    </div>
 
     <div id="map_container"></div>
     <script src="https://d3js.org/d3.v7.min.js"></script>

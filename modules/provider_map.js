@@ -100,13 +100,18 @@ class ProviderMap {
           
         console.log(event_region)
         let name = "<li>" + event_region.name + "</li>"
-        let count_percentage = "<li> Percentage:" + event_region.active_data.count_percentage.toFixed(1) + "</li>"
+        let count_percentage = "<li> Percentage:" + event_region.active_data.count_percentage.toFixed(1) + "%</li>"
         let student_count = "<li> Student count:" +String(event_region.active_data.total_count) + "</li>"
         let tool_tip_list = "<ul>" + name + count_percentage+student_count+"</ul>"
         _this.tool_tip.html(tool_tip_list)
         .style("left", (mouse_event.clientX+ 10) + "px")
         .style("top", (mouse_event.clientY - 15) + "px");
       }
+    })
+    .on('mousemove', function (mouse_event,event_region){
+      _this.tool_tip
+      .style("left", (mouse_event.clientX+ 10) + "px")
+      .style("top", (mouse_event.clientY - 15) + "px");
     })
           
     .on('mouseout', function (event,event_region) {

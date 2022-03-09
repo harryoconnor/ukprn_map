@@ -10,7 +10,7 @@ class ProviderMap {
     this.active_year = "2014/15"
 
     this.width = 750 
-    this.height = 400 
+    this.height = 300 
     this.active_provider = null
     this.active_provider_data = null
 
